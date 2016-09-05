@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+bin/
+include/
+pip-selfcheck.json
+.gitignore
