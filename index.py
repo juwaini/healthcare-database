@@ -6,7 +6,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    panels = (
+            {'text': 'Patients', 'href': 'patients'},
+            {'text': 'Doctors', 'href': 'doctors'},
+            {'text': 'Hospitals', 'href': 'hospitals'},
+            {'text': 'Diagnosises', 'href': 'diagnosises'},
+            )
+    return render_template('index.html', panels=panels)
 
 @app.route('/api/patients/', methods=["GET"])
 def patients():

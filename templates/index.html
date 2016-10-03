@@ -1,8 +1,43 @@
 <!doctype html>
-<title>
-    Welcome To Healthcare Database System
-</title>
+<html lang="en">
 
-<h1>
-    Hello stranger!
-</h1>
+<head>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hds.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        
+    <title>
+        Welcome To Healthcare Database System
+    </title>
+</head>
+
+<body>
+    <div class="container">
+    
+        <div class="page-header">
+            <img src="{{ url_for('static', filename='img/cisirlogo.jpg')}}">
+        </div>
+ 
+        <div class="row" id="top">
+            <div class="col-md-2">
+                <ul id="navigation" class="nav nav-pills nav-stacked" role="tablist">
+                    {% for panel in panels %}
+                    {% if loop.index0 == 0 %}
+                    <li role="presentation" class="active"><a role="tab" data-toggle="tab" href="#{{ panel.href }}">{{ panel.text }}</a></li>
+                    {% else %}
+                    <li role="presentation"><a role="tab" data-toggle="tab" href="#{{ panel.href }}">{{ panel.text }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul><br />
+                
+                <ul id="logout" class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="logout">Logout</a></li>
+                </ul>
+            </div>
+        </div> 
+
+    </div>
+</body>
+
+</html>
